@@ -18,6 +18,16 @@ public class DetectCollisions : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (gameObject.CompareTag("Animal"))
+        {
+            if (gameObject.GetComponent<AnimalHunger>().FeedAnimal(1))
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
