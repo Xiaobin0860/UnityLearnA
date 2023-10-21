@@ -19,7 +19,10 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > topBound || transform.position.z < bottomBound) {
+        if (transform.position.z > topBound ) {
+            Destroy(gameObject);
+        } else if (transform.position.z < bottomBound) {
+            Debug.Log("Game Over!");
             Destroy(gameObject);
         }
         transform.Translate(speed * Time.deltaTime * Vector3.forward);
