@@ -6,10 +6,12 @@ public class SpawnManager3 : MonoBehaviour
     private Vector3 spawnPos = new Vector3(25, 0, 0);
     const float START_DELAY = 2.0f;
     const float SPAWN_INTERVAL = 1.5f;
+    private PlayerController3 playerControllerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController3>();
         InvokeRepeating("SpawnBarrier", START_DELAY, SPAWN_INTERVAL);
     }
 
@@ -20,6 +22,13 @@ public class SpawnManager3 : MonoBehaviour
 
     void SpawnBarrier()
     {
-        Instantiate(barrierPrefab, spawnPos, barrierPrefab.transform.rotation);
+        if (playerControllerScript.isGameOver)
+        {
+            CancelInvoke("SpawnBarrier");
+        }
+        else
+        {
+            Instantiate(barrierPrefab, spawnPos, barrierPrefab.transform.rotation);
+        }
     }
 }
