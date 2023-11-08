@@ -609,8 +609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf23544c8d99c4b14a939142070e9e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModifier: 2
-  jumpForce: 15
+  gravityModifier: 1.5
+  jumpForce: 700
   isGameOver: 0
 --- !u!1001 &8354996043948689818
 PrefabInstance:
@@ -667,6 +667,10 @@ PrefabInstance:
     - target: {fileID: 2685513414665594425, guid: 14a448193f48c47cd8b90788d5d7ecdb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762816578565703378, guid: 14a448193f48c47cd8b90788d5d7ecdb, type: 3}
+      propertyPath: m_Mass
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
