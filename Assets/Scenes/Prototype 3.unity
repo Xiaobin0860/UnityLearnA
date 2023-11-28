@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbef229bac09b4490940899d368919dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 25
 --- !u!65 &835818923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -610,6 +610,51 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
   m_PrefabInstance: {fileID: 940392331}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1104911891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104911893}
+  - component: {fileID: 1104911892}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1104911892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104911891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9351b6171525485fb962e23acb3cb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashTimes: 1
+--- !u!4 &1104911893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104911891}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.683091, y: 7.6665554, z: 16.18608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1128828513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,7 +755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ab59aca8cc646daa006c703cdcafc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrierPrefab: {fileID: 6798930396713969290, guid: 8092214f73dbe4922be0f576b9e6db36, type: 3}
+  obstaclePrefabs:
+  - {fileID: 6798930396713969290, guid: 8092214f73dbe4922be0f576b9e6db36, type: 3}
+  - {fileID: 7765679883068276652, guid: 4192084a807f44c2ca075a686da80c9e, type: 3}
 --- !u!4 &1795569049
 Transform:
   m_ObjectHideFlags: 0
@@ -848,13 +895,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf23544c8d99c4b14a939142070e9e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModifier: 1.5
-  jumpForce: 700
+  gravityModifier: 2.3
+  jumpForce: 600
   isGameOver: 0
+  isGameStarted: 1
   explosionParticle: {fileID: 1128828515}
   dirtParticle: {fileID: 940392333}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
+  dashTimes: 1
 --- !u!1001 &8354996043948689818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -913,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762816578565703378, guid: 14a448193f48c47cd8b90788d5d7ecdb, type: 3}
       propertyPath: m_Mass
-      value: 60
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1043,3 +1092,4 @@ SceneRoots:
   - {fileID: 835818921}
   - {fileID: 8354996043948689818}
   - {fileID: 1795569049}
+  - {fileID: 1104911893}

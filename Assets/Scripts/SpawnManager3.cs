@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SpawnManager3 : MonoBehaviour
 {
-    public GameObject barrierPrefab;
-    private Vector3 spawnPos = new Vector3(25, 0, 0);
+    public GameObject[] obstaclePrefabs;
+    private Vector3 spawnPos = new Vector3(50, 0, 0);
     const float START_DELAY = 2.0f;
     const float SPAWN_INTERVAL = 1.5f;
     private PlayerController3 playerControllerScript;
@@ -28,7 +28,9 @@ public class SpawnManager3 : MonoBehaviour
         }
         else
         {
-            Instantiate(barrierPrefab, spawnPos, barrierPrefab.transform.rotation);
+            var barrierIndex = Random.Range(0, obstaclePrefabs.Length);
+            var obstacle = obstaclePrefabs[barrierIndex];
+            Instantiate(obstacle, spawnPos, obstacle.transform.rotation);
         }
     }
 }
